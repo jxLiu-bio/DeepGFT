@@ -11,7 +11,6 @@ DeepGFT: clustering spatial transcriptomics data using deep learning and graph F
    Data preparation
    References
    Release
-   Contact
    notebook/1_DLPFC
    notebook/2_Mouse_Primary_Visual_Cortex
    notebook/3_Human_Breast_Cancer
