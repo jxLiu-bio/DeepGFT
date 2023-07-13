@@ -71,3 +71,7 @@ Install ```jupyter notebook``` and set ipykernel.
 conda install jupyter
 python -m ipykernel install --user --name DeepGFT --display-name DeepGFT
 ```
+
+## Data preparation
+
+All data can be downloaded from https://drive.google.com/drive/folders/1uzrXJXbtwFomQuEldagfyA0Z_wfNqEza?usp=sharing.
