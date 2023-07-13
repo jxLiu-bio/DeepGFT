@@ -11,3 +11,4 @@ scanpy[louvain]
 pot
 scanyuan
 leidenalg
+jinja2==3.0.1
