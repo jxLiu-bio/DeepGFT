@@ -17,12 +17,10 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'SpaGFT'
-copyright = '2022, Jixin Liu'
-author = 'Jixin Liu'
+project = 'DeepGFT'
 
 # The full version, including alpha/beta/rc tags
-release = 'v1.0'
+release = 'v0.0.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -65,7 +63,7 @@ html_theme = 'sphinx_rtd_theme'
 #     github_repo='SpaGFT',  # Repo name
 #     github_version='master',  # Version
 # )
-html_static_path = ['_static']
-html_show_sphinx = False
-html_logo = '_static/img/SpaGFT_ LOGO.png'
-html_style = 'css/style.css'
+# html_static_path = ['_static']
+# html_show_sphinx = False
+# html_logo = '_static/img/SpaGFT_ LOGO.png'
+# html_style = 'css/style.css'
