@@ -21,7 +21,7 @@ conda install -c conda-forge r=4.1.0
 conda install -c conda-forge r-mclust
 ```
 
-Install ```DeepGFT``` from Github and rpy2. See [rpy2](https://pypi.org/project/rpy2/) for detail.
+Install ```DeepGFT``` from [Github](https://github.com/jxLiu-bio/DeepGFT) and rpy2. See [rpy2](https://pypi.org/project/rpy2/) for detail.
 
 ```bash
 git clone https://github.com/jxLiu-bio/DeepGFT.git
