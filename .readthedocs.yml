@@ -1,1 +1,15 @@
+version: 2
 
+sphinx:
+
+  configuration:  source/conf.py
+
+formats: all
+
+python:
+
+  version: 3.8
+
+  install:
+
+    - requirements: source/requirement.txt
