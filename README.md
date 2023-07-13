@@ -41,7 +41,7 @@ conda install -c conda-forge r-mclust
 Install ```DeepGFT``` from Github and rpy2. See https://pypi.org/project/rpy2/ for detail.
 
 ```bash
-git clone https://github.com/xxxxxxx
+git clone [https://github.com/xxxxxxx](https://github.com/jxLiu-bio/DeepGFT.git)
 cd DeepGFT
 pip install -r requirement.txt
 pip install rpy2==3.5.10
