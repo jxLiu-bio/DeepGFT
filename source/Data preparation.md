@@ -15,7 +15,7 @@ We used four spatial gene expression datasets.
 All data can be downloaded from [DeepGFT data](https://drive.google.com/drive/folders/1uzrXJXbtwFomQuEldagfyA0Z_wfNqEza?usp=sharing).
 
 We recommend load Visium data by:
-```
+```python
 import scanpy as sc
 adata = sc.read_visium(path_to_visium_dataset)
 ```
