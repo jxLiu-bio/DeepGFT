@@ -12,11 +12,11 @@ DeepGFT: clustering spatial transcriptomics data using deep learning and graph F
    References
    Release
    Contact
-   spatial/Human_Dorsolateral_Prefrontal_Cortex (DLPFC)
-   spatial/Mouse_Primary_Visual_Cortex
-   spatial/Human_Breast_Cancer
-   spatial/Batch_Human_Breast_Cancer
-   spatial/Human_Lymph_Node
+   notebook/1_DLPFC
+   notebook/2_Mouse_Primary_Visual_Cortex
+   notebook/3_Human_Breast_Cancer
+   notebook/4_batch_Human_Breast_Cancer
+   notebook/5_Human_Lymph_Node
    
 
 
