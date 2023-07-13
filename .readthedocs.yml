@@ -1,4 +1,4 @@
-version: 1
+version: 2
 
 sphinx:
 
@@ -8,8 +8,8 @@ formats: all
 
 python:
 
-  version: 3.8
+  version: 3.7
 
   install:
 
-    - requirements: source/requirement.txt
+    - requirements: source/requirements.txt
