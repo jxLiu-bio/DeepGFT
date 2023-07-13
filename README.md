@@ -68,7 +68,8 @@ pip install torch_geometric==2.1.0
 Install ```jupyter notebook``` and set ipykernel.
 
 ```bash
-conda install jupyter
+conda install nb_conda
+conda install -n DeepGFT ipykernel
 python -m ipykernel install --user --name DeepGFT --display-name DeepGFT
 ```
 
