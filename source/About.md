@@ -3,4 +3,4 @@
 
 DeepGFT uses gene expression to construct a gene co-expression network and utilizes spatial information of spots to construct a spot neighboring network. The pre-clustering can prune the network. Calculate the signal values separately through the graph Fourier transform and then obtain the lower dimensional signal values of the spots and genes through a low-pass filter. Then, learn low dimensional latent embeddings with spatial information and gene expression through graph attention convolutional autoencoder. The Autoencoder module is an encoding and decoding structure with two attention convolution layers and two linear layers. The FM features of spots are used as inputs to the spatial autoencoder to learn the embeddings of spots automatically. iGFT can transform the features from frequency-domain representations to gene expression values. In the reconstruction module, the attention fusion mechanism is used to merge two gene expression reconstruction matrices. The output of DeepGFT can be used to identify the spatial domain, denoise, identify substructure, and batch integration.
 
-![](image/DeepGFT.svg)
+![](images/DeepGFT.svg)
