@@ -10,7 +10,9 @@ We used four spatial gene expression datasets.
 
 3. Two breast cancer datasets can be obtained from 10x Genomics Data Repository (https://www.10xgenomics.com/cn/resources/datasets/human-breast-cancer-block-a-section-1-1-standard-1-1-0 and https://www.10xgenomics.com/cn/resources/datasets/human-breast-cancer-block-a-section-2-1-standard-1-1-0). 
 
-4. Human Lymph Node can be obtained from 10x Genomics Data Repository (https://www.10xgenomics.com/cn/resources/datasets/human-lymph-node-1-standard-1-1-0). 
+4. Human Lymph Node can be obtained from 10x Genomics Data Repository (https://www.10xgenomics.com/cn/resources/datasets/human-lymph-node-1-standard-1-1-0).
+
+All data can be downloaded from https://drive.google.com/drive/folders/1uzrXJXbtwFomQuEldagfyA0Z_wfNqEza?usp=sharing.
 
 We recommend load Visium data by:
 ```
