@@ -19,7 +19,7 @@
 
 ### Create a virtual environment
 
-Users can install ```anaconda``` by following this tutorial if there is no Conda. [https://www.anaconda.com/]
+Users can install ```anaconda``` by following this tutorial if there is no [Anaonda](https://www.anaconda.com/).
 
 Create a separated virtual environment:
 
@@ -38,7 +38,7 @@ conda install -c conda-forge r=4.1.0
 conda install -c conda-forge r-mclust
 ```
 
-Install ```DeepGFT``` from Github and rpy2. See https://pypi.org/project/rpy2/ for detail.
+Install ```DeepGFT``` from [Github](https://github.com/jxLiu-bio/DeepGFT) and [rpy2](https://pypi.org/project/rpy2/).
 
 ```bash
 git clone https://github.com/jxLiu-bio/DeepGFT.git
@@ -52,10 +52,10 @@ Next, run
 python setup.py install
 ```
 
-Install ```pytorch``` package of GPU version and ```pyG```.  See https://pytorch.org/ and 
-https://pytorch-geometric.readthedocs.io/en/2.1.0/index.html and for detail.
+Install ```pytorch``` package of GPU version and ```pyG```.  See [Pytorch](https://pytorch.org/) and 
+[PyG](https://pytorch-geometric.readthedocs.io/en/2.1.0/index.html) and for detail.
 We passed the test on cuda 11.6.1. Users can choose the corresponding pytorch for other cuda versions. _torch_sparse_,
-_torch_scatter_, _torch_cluster_ need to be manually downloaded on the https://pytorch-geometric.com/whl/.
+_torch_scatter_, _torch_cluster_ need to be manually downloaded on the [pytorch-geometric](https://pytorch-geometric.com/whl/).
 
 ```bash
 pip install torch==1.12.0+cu116 torchvision==0.13.0+cu116 torchaudio==0.12.0 --extra-index-url https://download.pytorch.org/whl/cu116
@@ -71,4 +71,3 @@ Install ```jupyter notebook``` and set ipykernel.
 conda install jupyter
 python -m ipykernel install --user --name DeepGFT --display-name DeepGFT
 ```
-
