@@ -5,7 +5,7 @@
 - Linux: CentOS 7
 - Windows: Windows 10
 
-```DeepGFT``` requires python version >= 3.7. We tested it in python 3.8 and cuda 11.6.1 on Linux. The following is our environment during testing：
+```DeepGFT``` requires python version >= 3.7. We tested it in python 3.8.16 and cuda 11.6.1 on Linux. The following is our environment during testing：
 
 ```python
 anndata==0.8.0
