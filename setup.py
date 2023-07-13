@@ -13,7 +13,7 @@ setup(
     url = __url__,
     license = __license__,
     packages = ['DeepGFT'],
-    install_requires = ["requests"]
+    install_requires = ["requests"],
     zip_safe = False,
     include_package_data = True
 )
