@@ -1,4 +1,4 @@
-name: deepgft
+name: spagft
 channels:
   - conda-forge
   - defaults

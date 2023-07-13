@@ -1,20 +1,29 @@
-.. DeepGFT documentation master file, created by
-   sphinx-quickstart on Thu Jul 13 20:28:16 2023.
+.. SpaGFT documentation master file, created by
+   sphinx-quickstart on Thu Apr 14 20:04:06 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to DeepGFT's documentation!
-===================================
+SpaGFT : Graph fourier transformer for representation, analysis, and interpretation of spatially variable genes
+==================================================================================================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :caption: Main
+   :maxdepth: 3
+
+   About
+   System Requirements
+   Installation
+   Data preparation
+   References
+   Release
+   Contact
+   spatial/mouse_brain_coronal
+   spatial/lymphnode_tutorial
+   spatial/codex_A6
+   Spg Script
+   
 
 
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+ 
