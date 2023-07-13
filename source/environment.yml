@@ -1,7 +1,6 @@
-name: spagft
+name: deepgft
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - python = 3.7
-  - theano
+  - python = 3.8
