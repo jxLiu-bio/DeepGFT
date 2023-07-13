@@ -1,50 +1,49 @@
 ## Installation
 
-### Configure the virtual environment 
+### Create a virtual environment
 
-The virtual environment is recommended before installing ```SpaGFT```. Users can
-configure the virtual environment by [anaconda](https://www.anaconda.com/).
+Users can install ```anaconda``` by following this tutorial if there is no Conda. [https://www.anaconda.com/]
 
-#### 1. Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)[optional]
-If the user does not install conda, please install a free minimal installer for conda (named Miniconda):
+Create a separated virtual environment:
 
 ```shell
-cd /path/to/software
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
+conda create -n DeepGFT python=3.8
+conda activate DeepGFT
 ```
 
-#### 2. Create the virtual environment
-```shell
-conda create -n spagft_env python==3.8.0
-conda activate spagft_env
-```
-If you want to quit this virtual environment, just run ``` conda deactivate ```
 
-#### 3. Install ```SpaGFT```
-##### 3.1 Approach 1: install ```SpaGFT``` by Pipy.
-You can install ```SpaGFT``` easily in this way by
-```shell
-pip install SpaGFT
-```
-You can also install ```SpaGFT``` via Github if there exists any problems.
-##### 3.2 Approach 2: install ```SpaGFT``` via Github
-Before installing ```SpaGFT``` formally, the dependency packages should be installed.
+### Install packages
 
-You can install all dependencies by:
-```shell
-git clone https://github.com/OSU-BMBL/SpaGFT
-cd SpaGFT
-pip install -r requirements.txt
+Install r-base and mclust packages:
+
+```bash
+conda install -c conda-forge r=4.1.0
+conda install -c conda-forge r-mclust
 ```
+
+Install ```DeepGFT``` from Github and rpy2. See https://pypi.org/project/rpy2/ for detail.
+
+```bash
+git clone https://github.com/jxLiu-bio/DeepGFT.git
+cd DeepGFT
+pip install -r requirement.txt
+pip install rpy2==3.5.10
+```
+
 Next, run
-```shell
+```bash
 python setup.py install
 ```
 
-We recommend [jupyter](https://jupyter.org/) for interactive usage. It can be installed and configured by
-```shell
-conda install jupyter
-python -m ipykernel install --user --name=spagft_env --display-name=spagft_env
-```
+Install ```pytorch``` package of GPU version and ```pyG```.  See https://pytorch.org/ and 
+https://pytorch-geometric.readthedocs.io/en/2.1.0/index.html and for detail.
+We passed the test on cuda 11.6.1. Users can choose the corresponding pytorch for other cuda versions. _torch_sparse_,
+_torch_scatter_, _torch_cluster_ need to be manually downloaded on the https://pytorch-geometric.com/whl/.
 
+```bash
+pip install torch==1.12.0+cu116 torchvision==0.13.0+cu116 torchaudio==0.12.0 --extra-index-url https://download.pytorch.org/whl/cu116
+pip install torch_sparse-0.6.16+pt112cu116-cp38-cp38-linux_x86_64.whl
+pip install torch_scatter-2.1.0+pt112cu116-cp38-cp38-linux_x86_64.whl
+pip install torch_cluster-1.6.0+pt112cu116-cp38-cp38-linux_x86_64.whl
+pip install torch_geometric==2.1.0
+```
