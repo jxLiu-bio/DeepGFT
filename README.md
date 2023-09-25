@@ -71,7 +71,9 @@ Install ```jupyter notebook``` and set ipykernel.
 conda install jupyter
 python -m ipykernel install --user --name DeepGFT --display-name DeepGFT
 ```
+## Tutorial
+For the step-by-step tutorial, please refer to: [
+](https://deepgft.readthedocs.io/en/latest/notebook/2_Mouse_Primary_Visual_Cortex.html)
 
-## Data preparation
-
+## Data availability
 All data can be downloaded from https://drive.google.com/drive/folders/1uzrXJXbtwFomQuEldagfyA0Z_wfNqEza?usp=sharing.
