@@ -19,7 +19,7 @@
 
 ### Create a virtual environment
 
-Users can install ```anaconda``` by following this tutorial if there is no [Anaonda](https://www.anaconda.com/).
+Users can install ```anaconda``` by following this tutorial if there is no [Anaconda](https://www.anaconda.com/).
 
 Create a separated virtual environment:
 
