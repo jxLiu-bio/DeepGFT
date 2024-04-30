@@ -53,7 +53,7 @@ def obtain_genenet(adata, dataset='pearson', species='human', path='', percentil
             X = adata.X.copy().todense()
         df = pd.DataFrame(X)
         if adata.shape[0] > 5000:
-            spot_choose = np.random.choice(list(range(adata.shape[0])), 4000, replace=False)
+            spot_choose = np.random.choice(list(range(adata.shape[0])), 5000, replace=False)
             net_choose = df.loc[spot_choose, :]
             genenet = net_choose.corr(method='pearson')
         else:

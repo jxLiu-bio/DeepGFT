@@ -157,10 +157,15 @@ def feature2signal(adata, gene_signal=1024, spot_signal=1024, c1=0.05, c2=0.0001
              Vector of eigenvalues of spots.
     """
     spot_net = adata.uns['spotnet_adj']
-    gene_freq_mtx, gene_eigvecs_T, gene_eigvals = GraphFourierTransform(spot_net, adata.X.copy().todense(),
-                                                                        n_GFT=gene_signal)
-    gene_freq_mtx = np.matmul(np.diag([1 / (1 + c1 * eig) for eig in gene_eigvals]), gene_freq_mtx)
-    # gene_freq_mtx = np.matmul(np.diag([np.exp(- eig / 200) for eig in gene_eigvals]), gene_freq_mtx)
+    if spot_net.shape[0] >= 2e4:
+        gene_freq_mtx = np.matmul(0.7 * np.eye(spot_net.shape[0]) + 0.3 * spot_net, adata.X.copy().todense())
+        gene_eigvecs_T = np.eye(spot_net.shape[0])
+        gene_eigvals = None
+    else:
+        gene_freq_mtx, gene_eigvecs_T, gene_eigvals = GraphFourierTransform(spot_net, adata.X.copy().todense(),
+                                                                            n_GFT=gene_signal)
+        gene_freq_mtx = np.matmul(np.diag([1 / (1 + c1 * eig) for eig in gene_eigvals]), gene_freq_mtx)
+        # gene_freq_mtx = np.matmul(np.diag([np.exp(- eig / 200) for eig in gene_eigvals]), gene_freq_mtx)
 
     gene_net = adata.uns['genenet']
     spot_freq_mtx, spot_eigvecs_T, spot_eigvals = GraphFourierTransform(gene_net, adata.X.copy().todense().T,
@@ -176,9 +181,14 @@ def feature2signal(adata, gene_signal=1024, spot_signal=1024, c1=0.05, c2=0.0001
 def f2s_gene(adata, gene_signal=1024, c1=0.05):
     """Using spot networks to obtain gene signals, eigenvectors, and eigenvalues through GFT"""
     spot_net = adata.uns['spotnet_adj']
-    gene_freq_mtx, gene_eigvecs_T, gene_eigvals = GraphFourierTransform(spot_net, adata.X.copy().todense(),
-                                                                        n_GFT=gene_signal)
-    gene_freq_mtx = np.matmul(np.diag([1 / (1 + c1 * eig) for eig in gene_eigvals]), gene_freq_mtx)
+    if spot_net.shape[0] >= 2e4:
+        gene_freq_mtx = np.matmul(0.7 * np.eye(spot_net.shape[0]) + 0.3 * spot_net, adata.X.copy().todense())
+        gene_eigvecs_T = np.eye(spot_net.shape[0])
+        gene_eigvals = None
+    else:
+        gene_freq_mtx, gene_eigvecs_T, gene_eigvals = GraphFourierTransform(spot_net, adata.X.copy().todense(),
+                                                                            n_GFT=gene_signal)
+        gene_freq_mtx = np.matmul(np.diag([1 / (1 + c1 * eig) for eig in gene_eigvals]), gene_freq_mtx)
     adata.uns['gene_freq'] = gene_freq_mtx
     return gene_freq_mtx.T, gene_eigvecs_T, gene_eigvals
 
@@ -276,6 +286,50 @@ def Batch_Data(adata, num_batch_x, num_batch_y, spatial_key=['X', 'Y']):
     return Batch_list
 
 
+def Batch_Data_3D(adata, num_batch_x, num_batch_y, num_batch_z, spatial_key=['X', 'Y', 'Z']):
+    """
+    3D subgraph training by partitioning points.
+
+    Args:
+        adata: anndata
+            AnnData object of scanpy package.
+        num_batch_x: int, optional
+            Number of divisions along the horizontal axis. The default is 2.
+        num_batch_y: int, optional
+            Number of divisions along the vertical axis. The default is 2.
+        num_batch_z: int, optional
+            Number of divisions along the vertical axis. The default is 1.
+        spatial_key: list, optional
+            Column names for spatial locations. The default is ['X', 'Y', 'Z'].
+
+    Returns:
+        Batch_list:
+            List of divided annData object of scanpy package.
+    """
+    Sp_df = adata.obs.loc[:, spatial_key].copy()
+    Sp_df = np.array(Sp_df)
+    batch_x_coor = [np.percentile(Sp_df[:, 0], (1 / num_batch_x) * x * 100) for x in range(num_batch_x + 1)]
+    batch_y_coor = [np.percentile(Sp_df[:, 1], (1 / num_batch_y) * x * 100) for x in range(num_batch_y + 1)]
+    batch_z_coor = [np.percentile(Sp_df[:, 2], (1 / num_batch_z) * x * 100) for x in range(num_batch_z + 1)]
+
+    Batch_list = []
+    for it_x in range(num_batch_x):
+        for it_y in range(num_batch_y):
+            for it_z in range(num_batch_z):
+                min_x = batch_x_coor[it_x]
+                max_x = batch_x_coor[it_x + 1]
+                min_y = batch_y_coor[it_y]
+                max_y = batch_y_coor[it_y + 1]
+                min_z = batch_z_coor[it_z]
+                max_z = batch_z_coor[it_z + 1]
+                temp_adata = adata.copy()
+                temp_adata = temp_adata[temp_adata.obs[spatial_key[0]].map(lambda x: min_x <= x <= max_x)]
+                temp_adata = temp_adata[temp_adata.obs[spatial_key[1]].map(lambda y: min_y <= y <= max_y)]
+                temp_adata = temp_adata[temp_adata.obs[spatial_key[2]].map(lambda z: min_z <= z <= max_z)]
+                Batch_list.append(temp_adata)
+    return Batch_list
+
+
 def obtain_spotnet(adata, rad_cutoff=150, k_cutoff=6, knn_method='KNN', prune=True):
     """
     Constructing a graph of spots using KNN or Radius methods.
@@ -297,7 +351,7 @@ def obtain_spotnet(adata, rad_cutoff=150, k_cutoff=6, knn_method='KNN', prune=Tr
     """
     coor = pd.DataFrame(adata.obsm['spatial'])
     coor.index = adata.obs.index
-    coor.columns = ['imagerow', 'imagecol']
+    # coor.columns = ['imagerow', 'imagecol']
     KNN_list = []
     if knn_method == 'Radius':
         nbrs = sklearn.neighbors.NearestNeighbors(radius=rad_cutoff).fit(coor)
