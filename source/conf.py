@@ -68,4 +68,4 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 html_show_sphinx = False
 # html_logo = '_static/img/SpaGFT_ LOGO.png'
-html_style = 'css/style.css'
+# html_style = 'css/style.css'
