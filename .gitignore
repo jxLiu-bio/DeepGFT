@@ -141,6 +141,7 @@ source/spatial/lymph_node.ipynb
 # macOS
 .DS_Store
 ._*
+.DS_Store*
 
 # Windows
 Thumbs.db
