@@ -1,7 +1,7 @@
 from setuptools import Command, find_packages, setup
 
 __lib_name__ = "DeepGFT"
-__lib_version__ = "1.0.0"
+__lib_version__ = "0.1.0"
 __description__ = "clustering spatial transcriptomics data using deep learning and graph Fourier transform"
 __url__ = "https://github.com/jxLiu-bio/DeepGFT"
 __license__ = "MIT"
