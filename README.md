@@ -1,4 +1,4 @@
-# DeepGFT: clustering spatial transcriptomics data using deep learning and graph Fourier transform
+# DeepGFT: identifying spatial domains in spatial transcriptomics of complex and 3D tissue using deep learning and graph Fourier transform
 
 
 <img src="https://img.shields.io/badge/Platform-Linux-green"> <img src="https://img.shields.io/badge/Language-python3-green"> <img src="https://img.shields.io/badge/License-MIT-green"> <img src="https://img.shields.io/badge/notebooks-passing-green">
